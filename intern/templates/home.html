@@ -1,0 +1,44 @@
+{% extends 'index.html' %}
+{% block title %} Home {% endblock %}
+{% block content %}
+<!--OSM-->
+{% load static %}
+<!--Map-->
+<!-- Page Wrapper -->
+<div id="wrapper">
+
+    <!-- Sidebar -->
+    {% include 'layout/navbar.html' %}
+    <!-- End of Sidebar -->
+
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+
+        <div id="content">
+
+            <!-- Topbar -->
+            {% include 'layout/topbar.html' %}
+            <!-- End of Topbar -->
+            <!-- Begin Page Content -->
+            <div class="container-fluid h-100 pt-4 darker-nw">
+                <!-- Content Row -->
+                
+            <h2>Intern Homepage</h2>
+
+            </div>
+            <!-- End of Main Content -->
+        </div>
+
+        <!-- Footer -->
+        {% include 'layout/footer.html' %}
+        <!-- End of Footer -->
+
+    </div>
+    <!-- End of Content Wrapper -->
+
+</div>
+<!-- End of Page Wrapper -->
+
+<script type="text/javascript">
+</script>
+{% endblock %}

@@ -1,0 +1,108 @@
+{% extends 'index.html' %}
+<!-- {% block title %} Intern {% endblock %} -->
+{% block content %}
+<!--OSM-->
+{% load static %}
+<!--Map-->
+<!-- Page Wrapper -->
+<div id="wrapper">
+
+    <!-- Sidebar -->
+    {% include 'layout/navbar.html' %}
+    <!-- End of Sidebar -->
+
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+
+        <div id="content">
+
+            <!-- Topbar -->
+            {% include 'layout/topbar.html' %}
+            <!-- End of Topbar -->
+
+            <!-- Begin Page Content -->
+
+<div class="container-fluid h-100 pt-4 darker-nw">
+  <!-- Content Row -->
+  <div class="card-body d-blue rounded card-cus">
+      <h4 class="pb-4 text-white">
+          Create Intern
+          <span style="cursor: pointer; float: right; font-size: 1.5em;"></span>
+      </h4>
+
+
+      <form class="form-horizontal" method="POST" action="/submituser" > <!-- pergi ke controller pastu g ke function dia  -->
+          {% csrf_token %}
+
+          
+            <div class="form-group">
+              <label class="control-label col-sm-2" for="user">First Name:</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" name="first_name" id="first_name" placeholder="Enter First Name">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="control-label col-sm-2" for="user">Last Name:</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" name="last_name" id="last_name" placeholder="Enter Last Name"">
+              </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="user">Username:</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" name="username" id="username" placeholder="Enter Username">
+                </div>
+            </div>
+            <div class="form-group">
+              <label class="control-label col-sm-2" for="user">Email:</label>
+              <div class="col-sm-10">
+                <input type="email" class="form-control" name="email" id="email" placeholder="Enter Email">
+              </div>
+          </div>
+            <div class="form-group">
+              <label class="control-label col-sm-2" for="user">Address:</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" name="intern_address" id="intern_address" placeholder="Enter Address">
+              </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label col-sm-2" for="user">Phone Num:</label>
+            <div class="col-sm-10">
+              <!-- <input type="text" class="form-control" name="phonenum" id="phonenum" placeholder="Enter Phone Number"> -->
+              <input type="tel" class="form-control" id="intern_phone" name="intern_phone" placeholder="01X-1234567" pattern="[0-9]{3}-[0-9]{5-7}" required>
+            </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="user">Guardian Name:</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" name="guardian_name" id="guardian_name" placeholder="Enter Guardian Name">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="user">Guardian Phone Num:</label>
+          <div class="col-sm-10">
+            <!-- <input type="text" class="form-control" name="guardian_phonenum" id="guardian_phonenum" placeholder="Enter Phone Number"> -->
+            <input type="tel" class="form-control" id="guardian_phone" name="guardian_phone" placeholder="01X-1234567" pattern="[0-9]{3}-[0-9]{5-7}" required>
+          </div>
+        </div>
+        
+
+          <!-- Submit Button-->
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+              <button type="submit" id="submit">Submit</button>
+            </div>
+          </div>
+        </form>
+        </div>
+        </div>
+        </div>
+        </div>
+</div>
+<!-- End of Main Content -->
+
+ <!-- Footer -->
+ {% include 'layout/footer.html' %}
+ <!-- End of Footer -->
+
+ {% endblock %}

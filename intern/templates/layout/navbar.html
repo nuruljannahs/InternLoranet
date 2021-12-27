@@ -1,0 +1,147 @@
+<style type="text/css">
+    .nav-link > span {
+        padding-left: 5px !important;
+    }
+    @media only screen and (max-width: 1024px) {
+        #logobig {
+            display: none;
+        }
+    }
+    @media only screen and (min-width: 1025px) {
+        #logosmall {
+            display: none;
+        }
+    }
+</style>
+<ul class="navbar-nav d-blue sidebar sidebar-dark accordion" id="accordionSidebar" style="transition: .4s">
+    <!-- Sidebar - Brand -->
+    {% load static %}
+    <a class="sidebar-brand d-flex align-items-center justify-content-center yellow-border" id="sbrand" href="/sYE8kSrGbwM=/">
+        <div class="sidebar-brand-icon">
+            <!-- <img  width="180" height="30" id="logobig">
+            <img  width="40" height="40" id="logosmall"> -->
+            <span id="logo_dummy" style="font-size: 20px;">INTERN ADMIN</span>
+            <!-- <img src="{% static 'img/street-light.png' %}" style="transform: scaleX(-1);" width="30" height="40"> -->
+        </div>
+        <!-- <div class="sidebar-brand-text mx-2"><sup></sup>Lightsol</div> -->
+    </a>
+
+    <!-- Divider -->
+    <!-- <hr class="sidebar-divider my-0"> -->
+    <li class="nav-item" style="background-color: #400059;font-size: 10.4px;font-weight: 800" id="navigation"><span class="nav-link">NAVIGATION</span></li>
+    <li class="nav-item" id="home">
+        <a class="nav-link" href="/home">
+            <!-- <i class="fas fa-fw fa-tachometer-alt"></i> -->
+            <img src="{% static 'img/icon/home.png' %}" width="20" height="20">
+            <span>Home</span></a>
+    </li>
+
+    <!-- <hr class="sidebar-divider my-0"> -->
+
+   
+    <!-- Divider -->
+    <!-- <hr class="sidebar-divider my-0"> -->
+
+    <!-- Heading -->
+    <li class="nav-item" id="linav">
+        <a class="nav-link collapsed" id="nvfeed" href="#" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true"
+           aria-controls="collapseOne">
+            <!-- <i class="fas fa-th-large"></i> -->
+            <img src="{% static 'img/icon/gateway.png' %}" width="20" height="20">
+            <span>Information</span>
+        </a>
+        <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionSidebar">
+            <div class="py-2 collapse-inner rounded" style="background-color: #400059;">
+            <!-- <div class="py-2 collapse-inner rounded" style="background-color: #0b4e6d;"> -->
+              
+                <a class="nav-link collapsed" href="#"
+                   style="padding-left: 30px;width: 200px">Intern Modul</a>
+                
+                <a class="nav-link collapsed" href="#"
+                   style="padding-left: 30px;width: 200px">Intern Info</a>
+                
+            </div>
+        </div>
+    </li>
+
+    
+    <!-- Divider -->
+        <li class="nav-item" style="background-color: #400059;font-size: 10.4px;font-weight: 800" id="settings"><span class="nav-link">SETTINGS</span></li>
+
+            <li class="nav-item" id="user">
+                <a class="nav-link" href="/user">
+                    <!-- <i class="fas fa-users fa-fw"></i> -->
+                    <img src="{% static 'img/icon/user.png' %}" width="20" height="20">
+                    <span>Intern</span></a>
+            </li>
+
+       
+    <!-- Sidebar Toggler (Sidebar) -->
+    <!-- <div class="text-center d-none d-md-inline">
+        <button class="rounded-circle border-0" id="sidebarToggle"></button>
+    </div> -->
+
+</ul>
+<!-- <script>
+    function getlogo() {
+        var data_ajax;
+        $.ajax({
+            async: true,
+            global: false,
+            url: '/getobjuser',
+            success: function (data) {
+                console.log(data);
+                    if (data.role == 3) {
+                        if(data.user_type == 'organization'){
+                            console.log('dapat 3 organization')
+                            document.getElementById('supplier').style.display = 'none'
+                            document.getElementById('user').style.display = 'none'
+                            if (data.org_type == 'contractor'){
+                                console.log('dapat contractor')
+                                document.getElementById('manufacturer_t').style.display = 'none'
+                                document.getElementById('installer_t').style.display = 'none'
+                            }else if (data.org_type == 'manufacturer'){
+                                console.log('dapat manufacturer')
+                                document.getElementById('contractor_t').style.display = 'none'
+                                document.getElementById('installer_t').style.display = 'none'
+                            } else {
+                                console.log('dapat installer')
+                                document.getElementById('contractor_t').style.display = 'none'
+                                document.getElementById('manufacturer_t').style.display = 'none'
+                            }
+                        }else{
+                            console.log('dapat 3 supplier')
+                            document.getElementById('organization').style.display = 'none'
+                            document.getElementById('user').style.display = 'none'
+                        }
+                    } else if (data.role == 2) {
+                        console.log(data.user_type);
+                        if(data.user_type == 'organization'){
+                            console.log('role 2 org dapat')
+                            document.getElementById('supplier').style.display = 'none'
+                            // document.getElementById('user').style.display = 'none'
+                        }else{
+                            console.log('role 2 supp dapat')
+                            document.getElementById('organization').style.display = 'none'
+                            // document.getElementById('user').style.display = 'none'
+                        }
+                    } else {
+                        console.log('dapat')
+                        // document.getElementById('contractor_t').style.display = 'none'
+                    }
+                }
+        });
+        return data_ajax
+	}
+    getlogo(); // TO USE EVERY HTML WITHOUT PASSING IN BACKEND
+
+    var logo = document.getElementById('logobig').src
+    if(logo == ''){
+        document.getElementById('logo_dummy').style.display = 'unset'
+        document.getElementById('logobig').style.display = 'none'
+    } else {
+        document.getElementById('logo_dummy').style.display = 'none'
+        document.getElementById('logobig').style.display = 'unset'
+    }
+    
+</script> -->

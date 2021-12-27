@@ -1,0 +1,1985 @@
+<!DOCTYPE html>
+<html lang="en">
+<style type="text/css">
+  .yellowish {
+    background-color: #FFCB04;
+  }
+
+  .sidebar .nav-item .nav-link {
+    padding: 8px 15px 8px 15px !important;
+  }
+
+  .yellow-border {
+    background-color: #FFCB04;
+    border-right: grey solid 2px;
+  }
+
+  .d-blue {
+    background-color: #293248 !important;
+  }
+
+  .darker-nw {
+    /* background-color: #29262F; */
+    background-color: gray;
+  }
+
+  .card-cus {
+    box-shadow: 0px 0px 10px 7px rgba(23, 19, 23, 0.59) !important;
+  }
+</style>
+
+
+<style>
+  .tab-pane,
+  .table {
+    color: black;
+  }
+
+  table,
+  th,
+  td {
+    font-family: 'Muli' !important;
+    color: black;
+  }
+
+  .dataTables_filter,
+  .dataTables_info,
+  .dataTables_length {
+    color: black;
+    font-family: 'Muli' !important;
+  }
+
+  .table>thead>tr>td {
+    border-top: none;
+  }
+
+  .table>tbody>tr>td {
+    vertical-align: middle;
+  }
+
+  .table {
+    font-size: 14px;
+  }
+
+  tspan {
+    /* fill:white;
+        background:white !important; */
+  }
+</style>
+
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>SLIMS - Home </title>
+
+  <link rel="icon" type="image/png" href="/static/appstreetlight/icon/logo.png">
+  <!-- Custom fonts for this template-->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+  <link
+    href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+    rel="stylesheet">
+
+  <!-- Custom styles for this template-->
+  <link rel="stylesheet" href="/static/appstreetlight/css/bootstrap.css" />
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+
+  <script src="https://www.amcharts.com/lib/4/core.js"></script>
+  <script src="https://www.amcharts.com/lib/4/charts.js"></script>
+  <script src="https://www.amcharts.com/lib/4/themes/animated.js"></script>
+
+  <!-- FONT -->
+  <link href="/static/appstreetlight/fonts/fonts.css " rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Muli&display=swap" rel="stylesheet">
+
+</head>
+
+<body id="page-top">
+  <!-- Main Content -->
+  <div id="content" class="opensans">
+
+    <!--OSM-->
+
+
+    <!-- SWEET ALERT  -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+
+
+
+    <!--Map-->
+    <link href="/static/appstreetlight/osmap/leaflet.css " rel="stylesheet">
+    <script src="/static/appslims/osmap/leaflet.js"></script>
+    <link href="/static/appstreetlight/osmap/MarkerCluster.css " rel="stylesheet">
+    <link href="/static/appstreetlight/osmap/MarkerCluster.Default.css " rel="stylesheet">
+    <script src="/static/appslims/osmap/leaflet.markercluster.js"></script>
+    <link rel="stylesheet" href="//unpkg.com/leaflet-gesture-handling/dist/leaflet-gesture-handling.min.css"
+      type="text/css">
+    <script src="//unpkg.com/leaflet-gesture-handling"></script>
+    <script src="/static/appslims/js/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="/static/appstreetlight/css/bootstrap.css" />
+    <link href="/static/appstreetlight/css/dataTables.bootstrap4.min.css " rel="stylesheet">
+    <link rel="stylesheet" href="/static/appstreetlight/css/datatablemobile/responsive.bootstrap.min.css">
+
+    <script src="/static/appslims/js/jquery.dataTables.js"></script>
+    <script src="/static/appslims/js/jquery.dataTables.min.js"></script>
+    <script src="/static/appslims/js/dataTables.bootstrap4.min.js"></script>
+    <script src="/static/appslims/js/dataTables.buttons.min.js"></script>
+    <script src="/static/appslims/js/buttons.print.min.js"></script>
+
+    <!-- <script src="//code.jquery.com/jquery-1.11.3.min.js"></script> -->
+    <script src="/static/appslims/js/datatablemobile/jquery.dataTables.min.js"></script>
+    <script src="/static/appslims/js/datatablemobile/dataTables.responsive.min.js"></script>
+
+    <link href="/static/appstreetlight/css/loading2.css " rel="stylesheet">
+    <!-- FULLSCREEN   -->
+    <script src="/static/appslims/osmap/Leaflet.fullscreen.min.js"></script>
+    <link href="/static/appstreetlight/osmap/leaflet.fullscreen.css " rel="stylesheet">
+    <style>
+      @import 'https://code.highcharts.com/css/highcharts.css';
+
+      .highcharts-tooltip-box {
+        color: white !important;
+        fill: black;
+        fill-opacity: 0.6;
+        stroke-width: 0;
+      }
+
+      .highcharts-legend-item>text {
+        fill: black;
+      }
+
+      .highcharts-tooltip text {
+        fill: white;
+        /* text-shadow: 0 0 3px black; */
+        font-size: 0.8rem;
+        color: black !important;
+      }
+
+
+
+
+      .highcharts-data-table table {
+        font-family: Verdana, sans-serif;
+        border-collapse: collapse;
+        border: 1px solid #EBEBEB;
+        margin: 10px auto;
+        text-align: center;
+        width: 100%;
+        max-width: 500px;
+      }
+
+      .highcharts-data-table caption {
+        padding: 1em 0;
+        font-size: 1.2em;
+        color: #555;
+      }
+
+      .highcharts-data-table th {
+        font-weight: 600;
+        padding: 0.5em;
+      }
+
+      .highcharts-data-table td,
+      .highcharts-data-table th,
+      .highcharts-data-table caption {
+        padding: 0.5em;
+      }
+
+      .highcharts-data-table thead tr,
+      .highcharts-data-table tr:nth-child(even) {
+        background: #f8f8f8;
+      }
+
+      .highcharts-data-table tr:hover {
+        background: #f1f7ff;
+      }
+
+      .highcharts-color-0 {
+        fill: red;
+        stroke: red;
+      }
+
+      .highcharts-color-1 {
+        fill: yellow;
+        stroke: yellow;
+      }
+
+      .highcharts-color-2 {
+        fill: blue;
+        stroke: blue;
+      }
+    </style>
+
+
+
+    <script src="https://code.highcharts.com/stock/highstock.js"></script>
+    <script src="https://code.highcharts.com/stock/modules/data.js"></script>
+    <script src="https://code.highcharts.com/stock/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/stock/modules/export-data.js"></script>
+
+    <style>
+      @media screen and (min-width: 768px) and (max-width: 1440px) {
+        #donutchart {
+          width: 280px;
+          height: 500px;
+        }
+      }
+
+      @media screen and (min-width: 1441px) and (max-width: 1920px) {
+        #donutchart {
+          width: 440px;
+          height: 500px;
+        }
+      }
+
+      @media screen and (max-height: 1080px) {
+        #map {
+          height: 500px;
+        }
+      }
+
+      @media screen and (max-height: 768px) {
+        #map {
+          height: 348px;
+        }
+      }
+
+      @media print {
+
+        .footer,
+        #non-printable {
+          display: none !important;
+        }
+
+        #printable {
+          display: block;
+        }
+      }
+
+      #top_x_div svg>g>rect {
+        fill: #29262F !important;
+      }
+    </style>
+
+    <style type="text/css">
+      .mb-4 {
+        /* background: transparent; */
+        color: #000000;
+      }
+
+      .card-header {
+        /* background: transparent; */
+        columns: #000000;
+        ;
+      }
+
+      .font-weight {
+        font-weight: bold;
+        font-family: 'opensans';
+      }
+
+      .text-black {
+        color: black;
+      }
+
+      .hidediv {
+        visibility: hidden;
+        display: none;
+      }
+
+      table,
+      th,
+      td {
+        border-bottom: 0px !important;
+        padding: 0px;
+        font-family: 'opensans';
+        color: #000000;
+      }
+
+      tbody {
+        color: gray;
+      }
+
+      .table thead th {}
+
+      .cus-table {
+        font-size: 0.8rem;
+      }
+
+      .text-left {
+        text-align: left;
+        /* border-bottom: 1px solid lightgray; */
+        color: #000000;
+      }
+
+      .size2em {
+        font-size: 2em;
+        color: #9c9c9c;
+      }
+
+      .size06em {
+        font-size: 0.6em;
+      }
+
+      .font-weight-500 {
+        font-weight: 500;
+      }
+
+      .map-lgnd {
+        font-size: 0.8em !important;
+        font-family: 'opensans';
+        padding: 0.2em;
+      }
+
+      @keyframes blinker {
+        50% {
+          opacity: 0;
+        }
+      }
+
+
+      .darker-nw {
+        /* background-color: #29262F;
+      border-color:grey; */
+        background-color: white;
+        color: black;
+      }
+
+      .theme-mode {
+        background-color: #ffffff;
+        color: #000000;
+      }
+
+
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      .hovertd tr:hover td {
+        background-color: #d6d6d6;
+        cursor: pointer;
+      }
+
+      .hovertd tr.selected td {
+        background-color: #d6d6d6;
+      }
+
+      .tbl-selected {
+        background-color: #d6d6d6;
+      }
+
+      .dt-button,
+      .buttons-print {
+        background: #dedede;
+        border-radius: 100px;
+        right: 10px;
+        position: absolute;
+        top: 8px;
+      }
+
+      .buttons-print:hover {
+        background-color: #b7b6b6;
+        cursor: pointer;
+      }
+
+      .buttons-ok {
+        border-radius: 100px;
+        background: #dedede;
+        cursor: pointer;
+      }
+
+      .buttons-ok:hover {
+        background-color: #b7b6b6;
+        cursor: pointer;
+      }
+    </style>
+
+    <style>
+      .float {
+        position: fixed;
+        width: 50px;
+        height: 50px;
+        bottom: 40px;
+        right: 40px;
+        background-color: #ffcb04;
+        color: #FFF;
+        border-radius: 50px;
+        text-align: center;
+        box-shadow: 2px 2px 3px #999;
+        z-index: 99999;
+      }
+
+      .float:hover {
+        color: #46617b
+      }
+
+      .my-float {
+        margin-top: 13px;
+        font-size: 1.5em;
+      }
+    </style>
+    <script>
+      $(document).ready(function () {
+        $('[data-toggle="tooltip"]').tooltip();
+      });
+    </script>
+    <!-- Page Wrapper -->
+    <div id="wrapper" style="border:0px solid rgb(130, 35, 143);">
+
+      <a id="menu_date" href="#" class="float">
+        <i class="fas fa-plus my-float"></i>
+      </a>
+      <!-- Sidebar -->
+      <style type="text/css">
+        .nav-link>span {
+          padding-left: 5px !important;
+        }
+
+        @media only screen and (max-width: 1079px) {
+          #logobig {
+            display: none;
+          }
+        }
+
+        @media only screen and (min-width: 1080px) {
+          #logosmall {
+            display: none;
+          }
+        }
+      </style>
+      <ul class="navbar-nav d-blue sidebar sidebar-dark accordion" id="accordionSidebar" style="transition: .4s">
+        <!-- Sidebar - Brand -->
+
+        <a class="sidebar-brand d-flex align-items-center justify-content-center yellow-border" id="sbrand"
+          href="/index">
+          <div class="sidebar-brand-icon">
+            <img src="/static/appslims/img/icon/logo.png" width="150" height="35" id="logobig">
+            <img src="/static/appslims/img/icon/logo-round.png" width="40" height="40" id="logosmall">
+            <!-- <img src="/static/appslims/img/street-light.png" style="transform: scaleX(-1);" width="30" height="40"> -->
+          </div>
+          <!-- <div class="sidebar-brand-text mx-2"><sup></sup>SLIMS</div> -->
+        </a>
+
+        <!-- Divider -->
+        <!-- <hr class="sidebar-divider my-0"> -->
+        <li class="nav-item" style="background-color: #2A4599;font-size: 10.4px;font-weight: 800"><span class="nav-link"
+            id="navigation">NAVIGATION</span></li>
+        <li class="nav-item" id="home">
+          <a class="nav-link" href="/index">
+            <!-- <i class="fas fa-fw fa-tachometer-alt"></i> -->
+            <img src="/static/appslims/img/icon/home.png" width="20" height="20">
+            <span>Home</span></a>
+        </li>
+
+        <!-- <hr class="sidebar-divider my-0"> -->
+
+        <!-- <li class="nav-item" id="location">
+        <a class="nav-link" href="/map">
+            <img src="/static/appslims/img/icon/map.png" width="20" height="20">
+            <span>Map</span></a>
+    </li> -->
+
+        <!-- Nav Item - Pages Collapse Menu -->
+        <li class="nav-item" id="linav">
+          <a class="nav-link collapsed" id="nvfeed" href="#" data-toggle="collapse" data-target="#collapseOne"
+            aria-expanded="true" aria-controls="collapseOne">
+            <!-- <i class="fas fa-th-large"></i> -->
+            <img src="/static/appslims/img/icon/gateway.png" width="20" height="20">
+            <span>Feeder</span>
+          </a>
+          <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionSidebar">
+            <div class="py-2 collapse-inner rounded" style="background-color: #3b4765;">
+              <!-- <div class="py-2 collapse-inner rounded" style="background-color: #0b4e6d;"> -->
+
+              <a class="nav-link collapsed" href="/feeder/1" style="padding-left: 30px;width: 200px">KEL_TM_FO_FP1</a>
+              <div id="x" class="collapse" aria-labelledby="headingX">
+
+              </div>
+
+              <a class="nav-link collapsed" href="/feeder/2" style="padding-left: 30px;width: 200px">KEL_TM_FO_FP2</a>
+              <div id="x" class="collapse" aria-labelledby="headingX">
+
+              </div>
+
+              <a class="nav-link collapsed" href="/feeder/3" style="padding-left: 30px;width: 200px">KEL_TM_FO_FP3</a>
+              <div id="x" class="collapse" aria-labelledby="headingX">
+
+              </div>
+
+            </div>
+          </div>
+        </li>
+
+        <!-- Divider -->
+        <!-- <hr class="sidebar-divider my-0"> -->
+
+        <!-- Heading -->
+
+        <li class="nav-item" id="group">
+          <a class="nav-link" href="/tableGroup">
+            <!-- <i class="fas fa-layer-group"></i> -->
+            <img src="/static/appslims/img/icon/group.png" width="20" height="20">
+            <span>Group</span></a>
+        </li>
+        <!-- <hr class="sidebar-divider my-0"> -->
+        <li class="nav-item" id='dim'>
+          <a class="nav-link" href="/tableDim">
+            <!-- <i class="fas fa-adjust"></i> -->
+            <img src="/static/appslims/img/icon/dim.png" width="20" height="20">
+            <span>Dim Profile</span></a>
+        </li>
+        <li class="nav-item" id='datatable'>
+          <a class="nav-link" href="/tableVoltage">
+            <!-- <i class="fas fa-table"></i> -->
+            <img src="/static/appslims/img/icon/data.png" width="20" height="20">
+            <span>Data Monitoring</span></a>
+        </li>
+        <!-- <li class="nav-item" id="linav2">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true"
+           aria-controls="collapseTwo">
+            <i class="fas fa-table"></i>
+            <span>Data</span>
+        </a>
+        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <a class="collapse-item" href="/tableVoltage" id="datatable">Power</a>
+          </div>
+        </div>
+    </li> -->
+        <!-- <hr class="sidebar-divider my-0"> -->
+        <!-- <li class="nav-item" id='historyhome'>
+        <a class="nav-link" href="/historyhome">
+            <i class="fas fa-history"></i>
+            <span>History</span></a>
+    </li> -->
+
+        <!-- Divider -->
+        <li class="nav-item" id="settings" style="background-color: #2A4599;font-size: 10.4px;font-weight: 800">
+          <span class="nav-link">SETTINGS</span>
+        </li>
+
+        <li class="nav-item" id="user">
+          <a class="nav-link" href="/usermgt">
+            <!-- <i class="fas fa-users fa-fw"></i> -->
+            <img src="/static/appslims/img/icon/user.png" width="20" height="20">
+            <span>User</span></a>
+        </li>
+        <!-- <hr class="sidebar-divider my-0"> -->
+        <li class="nav-item" id='feeder'>
+          <a class="nav-link" href="/feederall">
+            <!-- <i class="fas fa-cog fa-fw"></i> -->
+            <img src="/static/appslims/img/icon/gateway.png" width="20" height="20">
+            <span>Feeder</span></a>
+        </li>
+        <!-- <hr class="sidebar-divider my-0"> -->
+        <li class="nav-item" id='device'>
+          <a class="nav-link" href="/device">
+            <!-- <i class="fas fa-wrench fa-fw"></i> -->
+            <img src="/static/appslims/img/icon/device.png" width="20" height="20">
+            <span>Device</span></a>
+        </li>
+
+
+        <li class="nav-item" id='energy'>
+          <a class="nav-link" href="/energysetting">
+            <!-- <i class="fas fa-bolt fa-fw"></i> -->
+            <img src="/static/appslims/img/icon/energy.png" width="20" height="20">
+            <span>Energy</span></a>
+        </li>
+        <li class="nav-item" id='events'>
+          <a class="nav-link" href="/logaction">
+            <!-- <i class="fas fa-history fa-fw"></i> -->
+            <img src="/static/appslims/img/icon/events.png" width="20" height="20">
+            <span>Events</span></a>
+        </li>
+        <li class="nav-item" id="modbusconfig">
+          <a class="nav-link" href="/modbus_display">
+            <img src="/static/appslims/img/icon/setting.png" width="20" height="20">
+            <span>Modbus</span></a>
+        </li>
+
+
+
+        <hr class="sidebar-divider d-none d-md-block">
+        <li class="nav-item" id="linav2">
+          <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTest" aria-expanded="true"
+            aria-controls="collapseTest">
+            <!-- <i class="fas fa-vial"></i> -->
+            <img src="/static/appslims/img/icon/testing.png" width="20" height="20">
+            <span>Testing Page</span>
+          </a>
+          <div id="collapseTest" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+              <a class="collapse-item" href="/new_control" id="timepolicy">Time Policy</a>
+              <a class="collapse-item" href="/thresholdset" id="threshold">Set Threshold</a>
+              <a class="collapse-item" href="/jointable" id="dataEnergy">Join Table</a>
+              <a class="collapse-item" href="/multicast_view" id="multicast">Multicast</a>
+            </div>
+          </div>
+        </li>
+
+        <!-- Sidebar Toggler (Sidebar) -->
+        <!-- <div class="text-center d-none d-md-inline">
+        <button class="rounded-circle border-0" id="sidebarToggle"></button>
+    </div> -->
+
+      </ul>
+      <!--<script type="text/javascript">-->
+      <!--    $('#error').click(function(){-->
+      <!--      swal ( "Oops" ,  "In progress!" ,  "warning" )-->
+      <!--    });-->
+      <!--</script>-->
+      <!-- End of Sidebar -->
+
+      <!-- Content Wrapper -->
+      <div id="content-wrapper" class="d-flex flex-column" style="border:0px solid red; height: 100%;">
+
+        <div id="content" style="border:0px solid rgb(0, 119, 255);height: 100%;">
+
+          <!-- Topbar -->
+          <!-- Topbar -->
+          <style type="text/css">
+            .big {
+              transform: scale(0.9) !important;
+              right: -.15rem !important;
+              margin-top: -0.7rem !important;
+            }
+          </style>
+          <nav id="topbar1" class="navbar navbar-expand yellowish navbar-light topbar static-top"
+            style="z-index: 1001;">
+            <!-- Sidebar Toggle (Topbar) -->
+            <button onclick="smallclose()" id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+              <i class="fa fa-bars"></i>
+            </button>
+            <button class="btn btn-link rounded-circle mr-3 text-gray-700" onclick="closenav()" id="sidebar72">
+              <i class="fa fa-bars"></i>
+            </button>
+
+            <!-- <img src="/static/appslims/icon/logo.png" style="width: 9em; height: 2.5em; padding-right: 10px;"> -->
+            <!-- Topbar Navbar -->
+            <ul class="navbar-nav ml-auto">
+
+              <!-- Nav Item - Alert -->
+              <li class="nav-item dropdown no-arrow mx-1">
+                <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false">
+                  <!-- <i class="fas fa-bell fa-fw"></i> -->
+                  <img src="/static/appslims/img/icon/bell.png" width="30px" height="30px">
+                  <!-- Counter - Alerts -->
+                  <span class="badge badge-danger badge-counter big" id="alarmBadge">3</span>
+                </a>
+                <!-- Dropdown - Alerts -->
+                <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                  aria-labelledby="alertsDropdown">
+                  <h6 class="dropdown-header d-blue" style="border:1px solid #293248">
+                    Alerts Center
+                  </h6>
+                  <div class="dropdown-item small" href="#">Feeder Alarm</div>
+                  <!-- <a class="dropdown-item d-flex align-items-center" href="#"> -->
+                  <div>
+                    <table id="tableNoti" style="font-size: 12px;">
+                      <tbody>
+
+                      </tbody>
+                    </table>
+                  </div>
+                  <!-- </a> -->
+                  <a class="dropdown-item text-center small text-gray-500" href="#"
+                    style="border-top: 1px solid #e3e6f0;">Show more</a>
+                  <div class="dropdown-item small" href="#">Street light Alarm</div>
+                  <div>
+                    <table id="tableNoti2" style="font-size: 12px;">
+                      <tbody>
+
+                      </tbody>
+                    </table>
+                  </div>
+
+                  <a class="dropdown-item text-center small text-gray-500" href="/map">Show more</a>
+
+                </div>
+              </li>
+
+              <!-- Nav Item - User Information -->
+              <li class="nav-item dropdown no-arrow">
+                <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false">
+                  <span class="mr-2 d-none d-lg-inline text-gray-600 small">Dev2</span>
+                  <img src="/static/appslims/img/icon/user3.png" width="30px" height="30px">
+                </a>
+                <!-- Dropdown - User Information -->
+                <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+
+                  <a class="dropdown-item" href="/usermgt">
+                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+                    User Settings
+                  </a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="/energysetting">
+                    <i class="fas fa-bolt fa-sm fa-fw mr-2 text-gray-400"></i>
+                    Energy Settings
+                  </a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="/license">
+                    <i class="fas fa-key fa-sm fa-fw mr-2 text-gray-400"></i>
+                    License
+                  </a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                    Logout
+                  </a>
+                </div>
+              </li>
+
+            </ul>
+
+          </nav>
+          <script>
+            function closenav() {
+              console.log('do closenav');
+              var x = document.getElementById("accordionSidebar");
+              console.log(x.style.width)
+              if (x.style.width === "") {
+                document.getElementById("accordionSidebar").style = 'width:0 !important;transition:.4s';
+                document.getElementById("sbrand").style = 'display: none !important';
+                document.getElementById("linav").style = 'display: none !important';
+                if (document.getElementById("linav2") != null) {
+                  document.getElementById("linav2").style = 'display: none !important';
+                }
+                document.getElementById("group").style = 'display: none !important';
+                document.getElementById("dim").style = 'display: none !important';
+                // document.getElementById("location").style='display: none !important';
+                document.getElementById("datatable").style = 'display: none !important';
+                document.getElementById("user").style = 'display: none !important';
+                document.getElementById("feeder").style = 'display: none !important';
+                document.getElementById("device").style = 'display: none !important';
+                document.getElementById("events").style = 'display: none !important';
+                document.getElementById("settings").style.display = 'none';
+                document.getElementById("energy").style.display = 'none';
+                document.getElementById("modbusconfig").style.display = 'none';
+                document.getElementById("home").style = 'display: none !important';
+                console.log('settings ss')
+              }
+              else if (x.style.width === "0px") {
+                console.log('elseee')
+                document.getElementById("accordionSidebar").style = 'width: !important;transition:.4s';
+                document.getElementById("sbrand").style = 'display :  !important';
+                document.getElementById("linav").style = 'display: !important';
+                if (document.getElementById("linav2") != null) {
+                  document.getElementById("linav2").style = 'display: !important';
+                }
+                document.getElementById("group").style = 'display: !important';
+                document.getElementById("dim").style = 'display: !important';
+                // document.getElementById("location").style='display: !important';
+                document.getElementById("datatable").style = 'display: !important';
+                document.getElementById("user").style = 'display: !important';
+                document.getElementById("feeder").style = 'display: !important';
+                document.getElementById("device").style = 'display: !important';
+                document.getElementById("events").style = 'display: !important';
+                document.getElementById("settings").style.display = 'block';
+                document.getElementById("energy").style.display = 'block';
+                document.getElementById("modbusconfig").style.display = 'block';
+                document.getElementById("home").style.display = 'block';
+              }
+            }
+
+            function smallclose() {
+              console.log('do smallclose');
+              var v = $(".sidebar").width();
+              // alert(v);
+              if (v == 104) {
+                // alert('104');
+                // alert('104');
+                document.getElementById('accordionSidebar').style = 'width: 0!important;transition:.4s';
+                document.getElementById("sbrand").style = 'display: none !important';
+                document.getElementById("linav").style = 'display: none !important';
+                document.getElementById("group").style = 'display: none !important';
+                document.getElementById("dim").style = 'display: none !important';
+                // document.getElementById("location").style='display: none !important';
+                document.getElementById("datatable").style = 'display: none !important';
+                document.getElementById("user").style = 'display: none !important';
+                document.getElementById("feeder").style = 'display: none !important';
+                document.getElementById("device").style = 'display: none !important';
+                document.getElementById("events").style = 'display: none !important';
+                document.getElementById("settings").style.display = 'none !important';
+                document.getElementById("energy").style.display = 'none';
+                if (document.getElementById("linav2") != null) {
+                  document.getElementById("linav2").style = 'display: none !important';
+                }
+                document.getElementById("navigation").style.display = ' none !important';
+                document.getElementById("modbusconfig").style.display = 'none';
+                document.getElementById("home").style = 'display: none !important';
+              }
+              else {
+                // alert('0');
+                document.getElementById('accordionSidebar').style = 'width: 6.5rem!important;overflow:initial;transition:.4s';
+                document.getElementById("sbrand").style = 'display :block !important';
+                document.getElementById("linav").style = 'display:block !important';
+                document.getElementById("group").style = 'display:block !important';
+                document.getElementById("dim").style = 'display:block !important';
+                // document.getElementById("location").style='display:block !important';
+                document.getElementById("datatable").style = 'display:block !important';
+                document.getElementById("user").style = 'display:block !important';
+                document.getElementById("feeder").style = 'display:block !important';
+                document.getElementById("device").style = 'display:block !important';
+                document.getElementById("events").style = 'display:block !important';
+                document.getElementById("settings").style.display = 'block !important';
+                document.getElementById("energy").style.display = 'block !important';
+                if (document.getElementById("linav2") != null) {
+                  document.getElementById("linav2").style = 'display: block !important';
+                }
+                document.getElementById("navigation").style.display = 'block';
+                document.getElementById("modbusconfig").style.display = 'block';
+                document.getElementById("home").style.display = 'block';
+              }
+            }
+
+            // setInterval(function(){
+            try {
+              $.ajax({
+                async: true,
+                global: false,
+                url: 'jsonActAlarmCount',
+                // dataType: 'json',
+                success: function (json) {
+                  // console.log('jsonActAlarmCount')
+                  // console.log(json)
+                  y = json;
+                  // console.log('count: '+y);
+                  try {
+                    if (y > 0) document.getElementById('alarmBadge').innerHTML = y;
+                    else document.getElementById('alarmBadge').innerHTML = '';
+                  } catch (error) {
+
+                  }
+                }
+              });
+            } catch (error) {
+
+            }
+//   }, 2000);
+
+
+          </script>
+          <style>
+            /* For mobile phones: */
+            @media only screen and (max-width: 767px) {
+
+              #home,
+              #energy,
+              #sidebar72,
+              #sbrand,
+              #linav,
+              #group,
+              #dim,
+              #location,
+              #datatable,
+              #user,
+              #feeder,
+              #device,
+              #events,
+              #settings,
+              #home,
+              #linav2,
+              #navigation,
+              #modbusconfig {
+                display: none;
+              }
+
+              #accordionSidebar {
+                width: 0;
+              }
+            }
+          </style>
+
+          <!-- End of Topbar -->
+          <!-- Begin Page Content -->
+          <div class="container-fluid theme-mode">
+            <!-- Content Row -->
+            <span id="userid" hidden>8</span>
+            <span id="feedername" hidden>feedername</span>
+            <span id="feederid" hidden>feederid</span>
+            <!-- Content Row -->
+            <div class="row" style="padding-top: 10px;padding-bottom: 10px;">
+              <div class="col-xl-12">
+                <div id="map">
+                </div>
+                <div class="leaflet-bottom leaflet-left" style="padding: .5em; bottom: -11px;">
+                  <div class="map-lgnd">
+                    <div class="mb-2 opensans"><img src="/static/appslims/icon/feeder_green.png" width="30" height="30">
+                      Online</div>
+                    <div class="mb-2 opensans"><img src="/static/appslims/icon/feeder_yellow.png" width="30"
+                        height="30"> Fault MCB</div>
+                    <div class="mb-2 opensans"><img src="/static/appslims/icon/feeder_orange.png" width="30"
+                        height="30"> Fault ELR</div>
+                    <div class="mb-2 opensans"><img src="/static/appslims/icon/feeder_red.png" width="30" height="30">
+                      Fault TNB</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div id="overlay2" style="display:none;">
+              <div class="spinner"></div>
+              <br />
+              Loading
+            </div>
+
+
+
+            <div class="row">
+              <div class="col-lg-12">
+                <div class="card shadow mb-4">
+                  <div class="card-header">
+                    <h6 class="m-0 text-center">Feeder Pillar</h6>
+                  </div>
+                  <div class="table-responsive" id="heighttbl_feeder">
+                    <table class="table cus-table" width="100%" cellspacing="0">
+                      <thead>
+                        <tr>
+                          <th>No</th>
+                          <th>Name</th>
+                          <th>Description</th>
+                        </tr>
+                      </thead>
+                      <tbody class="hovertd">
+
+                        <tr style="cursor:pointer;"
+                          onclick="showfeedermap('1','5.808794833368248','102.14757657047814',true)" id="tbl_1">
+                          <td>1</td>
+                          <td>KEL_TM_FO_FP1</td>
+                          <td>Jalan tanah merah 1</td>
+                        </tr>
+
+                        <tr style="cursor:pointer;"
+                          onclick="showfeedermap('2','5.809166813294452','102.14459395405358',true)" id="tbl_2">
+                          <td>2</td>
+                          <td>KEL_TM_FO_FP2</td>
+                          <td>Jalan tanah merah 2</td>
+                        </tr>
+
+                        <tr style="cursor:pointer;"
+                          onclick="showfeedermap('3','5.8090051061178505','102.14765623211862',true)" id="tbl_3">
+                          <td>3</td>
+                          <td>KEL_TM_FO_FP3</td>
+                          <td>Jalan tanah merah 3</td>
+                        </tr>
+
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row theme-mode">
+              <div class="col-lg-6" id="ac_g1" style="visibility: hidden;display: none;">
+                <div class="card shadow mb-4">
+                  <div class="card-header">
+                    <h6 class="m-0 text-center ">ELR 1</h6>
+                    <i class="fas fa-list-ul" style="position: absolute; top: 12px; cursor: pointer;"
+                      title="More detail" onclick="show_io()"><a href="" id="history_io"></a></i>
+                  </div>
+                  <div>
+                    <div class="table-responsive">
+                      <table class="table cus-table" width="100%" cellspacing="0">
+                        <thead>
+                          <tr>
+                            <th>MCB1</th>
+                            <th>MCB2</th>
+                            <th>MCB3</th>
+                            <th>MCB4</th>
+                            <th>MCB5</th>
+                            <th>MCB6</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <td id="INP_A8" class="size2em">
+                            <i class="fas fa-lightbulb"></i>
+                          </td>
+                          <td id="INP_A9" class="size2em">
+                            <i class="fas fa-lightbulb"></i>
+                          </td>
+                          <td id="INP_A10" class="size2em">
+                            <i class="fas fa-lightbulb"></i>
+                          </td>
+                          <td id="INP_A11" class="size2em">
+                            <i class="fas fa-lightbulb"></i>
+                          </td>
+                          <td id="INP_A12" class="size2em">
+                            <i class="fas fa-lightbulb"></i>
+                          </td>
+                          <td id="INP_A13" class="size2em">
+                            <i class="fas fa-lightbulb"></i>
+                          </td>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-6" id="ac_g2" style="visibility: hidden;display: none;">
+                <div class="card shadow mb-4">
+                  <div class="card-header">
+                    <h6 class="m-0 text-center">ELR 2</h6>
+                    <i class="fas fa-list-ul" style="position: absolute; top: 12px; cursor: pointer;"
+                      title="More detail" onclick="show_io()"><a href="" id=""></a></i>
+                  </div>
+                  <div>
+                    <div class="table-responsive">
+                      <table class="table cus-table" width="100%" cellspacing="0">
+                        <thead>
+                          <tr>
+                            <th>MCB7</th>
+                            <th>MCB8</th>
+                            <th>MCB9</th>
+                            <th>MCB10</th>
+                            <th>MCB11</th>
+                            <th>MCB12</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <td id="INP_A14" class="size2em">
+                            <i class="fas fa-lightbulb"></i>
+                          </td>
+                          <td id="INP_A15" class="size2em">
+                            <i class="fas fa-lightbulb"></i>
+                          </td>
+                          <td id="INP_B0" class="size2em">
+                            <i class="fas fa-lightbulb"></i>
+                          </td>
+                          <td id="INP_B1" class="size2em">
+                            <i class="fas fa-lightbulb"></i>
+                          </td>
+                          <td id="INP_B2" class="size2em">
+                            <i class="fas fa-lightbulb"></i>
+                          </td>
+                          <td id="INP_B3" class="size2em">
+                            <i class="fas fa-lightbulb"></i>
+                          </td>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+            <!-- ALARM HISTORY -->
+            <div class="row">
+              <div class="col-lg-12" id="row_alarm" style="visibility: hidden;display: none;">
+                <div class="card shadow mb-4">
+                  <div class="card-header">
+                    <h6 class="m-0 text-center ">Alarm</h6>
+                  </div>
+                  <div class="table-responsive" style="height:200px;">
+                    <table class="table cus-table" width="100%" cellspacing="0" id="tbl_alarm">
+                      <thead>
+                        <tr>
+                          <th>No</th>
+                          <th>Date created</th>
+                          <th>Feeder</th>
+                          <th>Type</th>
+                          <th>Time</th>
+                          <th>Status</th>
+                          <th>Action</th>
+                        </tr>
+                      </thead>
+                      <tbody class="hovertd">
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-lg-6" id="grp2" style="visibility: hidden;display: none;">
+                <div class="card shadow mb-4">
+                  <div id="container-elr1" style="height: 400px; min-width: 310px;" class="card"></div>
+                </div>
+              </div>
+              <div class="col-lg-6" id="grp3" style="visibility: hidden;display: none;">
+                <div class="card shadow mb-4">
+                  <div id="container-elr2" style="height: 400px; min-width: 310px;" class="card"></div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-6" id="grp1" style="visibility: hidden;display: none;">
+                <div class="card shadow mb-4">
+                  <div id="container-voltage" style="height: 400px; min-width: 310px;" class="card"></div>
+                </div>
+              </div>
+              <div class="col-lg-6" id="grp4" style="visibility: hidden;display: none;">
+                <div class="card shadow mb-4">
+                  <div id="container-current" style="height: 400px; min-width: 310px;" class="card"></div>
+                </div>
+              </div>
+            </div>
+
+
+
+            <div class="row">
+              <div class="col-lg-12" id="grp5" style="visibility: hidden;display: none;">
+                <div class="card shadow mb-4">
+                  <div id="chart_kwh" style='height: 400px; width: 100%; object-fit: contain'></div>
+                </div>
+              </div>
+            </div>
+
+
+            <!-- /.container-fluid -->
+
+          </div>
+          <!-- End of Main Content -->
+        </div>
+
+        <!-- Footer -->
+        <!-- <footer class="sticky-footer darker-nw footer" style="border-top: 1px solid grey">
+<div class="container my-auto">
+  <div class="copyright text-center my-auto">
+    <span>Copyright &copy; SLIMS 2019</span>
+  </div>
+</div>
+</footer> -->
+        <!-- End of Footer -->
+
+      </div>
+      <!-- End of Content Wrapper -->
+
+    </div>
+    <!-- End of Page Wrapper -->
+    <script src="https://www.amcharts.com/lib/4/core.js"></script>
+    <script src="https://www.amcharts.com/lib/4/charts.js"></script>
+    <!-- End of Page Wrapper -->
+    <script src="/static/appslims/chart/voltage_current.js"></script>
+    <script src="/static/appslims/chart/current_elr.js"></script>
+
+
+    <script type="text/javascript">
+      function doloading() {
+        console.log('doloading()');
+        $('#overlay2').fadeIn().delay(2000).fadeOut();
+      }
+      // doloading()
+      // $(document).mousemove(function(e){
+      //   var vertical = e.pageY;
+
+      //   if(vertical <= 70 ) {    
+      //     $('#topbar1').show();
+      //   } else {
+      //     $('#topbar1').hide();
+      //   }
+      // })
+      // $("#kad").css('opacity','0')
+      // height = $(window).height()-101; 
+
+
+
+      $("#accordionSidebar").css("width", "0px").css("display", "none")
+      // document.getElementById('location').classList.add('active');
+      window.addEventListener("resize", reportWindowSize);
+      function reportWindowSize() {
+        height = $(window).height() - 167;
+        document.getElementById('map').style.height = height + "px";
+
+        var heighttbl_feeder = document.getElementById('heighttbl_feeder').clientHeight;
+        if (heighttbl_feeder > 400) {
+          document.getElementById('heighttbl_feeder').style.height = "400px";
+        }
+      }
+      reportWindowSize()
+
+
+
+
+      slred = new L.Icon({
+        iconUrl: "/static/appslims/icon/red.png",
+        iconSize: [12, 12]
+      });
+      slyellow = new L.Icon({
+        iconUrl: "/static/appslims/icon/yellow.png",
+        iconSize: [12, 12]
+      });
+      slgreen = new L.Icon({
+        iconUrl: "/static/appslims/icon/green.png",
+        iconSize: [12, 12]
+      });
+      slgrey = new L.Icon({
+        iconUrl: "/static/appslims/icon/grey.png",
+        iconSize: [12, 12]
+      });
+      slblack = new L.Icon({
+        iconUrl: "/static/appslims/icon/black.png",
+        iconSize: [12, 12]
+      });
+      slblue = new L.Icon({
+        iconUrl: "/static/appslims/icon/blue.png",
+        iconSize: [12, 12]
+      });
+      feeder = new L.Icon({
+        iconUrl: "/static/appslims/icon/feeder.png",
+        iconSize: [30, 30]
+      });
+      feeder_yellow = new L.Icon({
+        iconUrl: "/static/appslims/icon/feeder_yellow.png",
+        iconSize: [30, 30]
+      });
+      feeder_red = new L.Icon({
+        iconUrl: "/static/appslims/icon/feeder_red.png",
+        iconSize: [30, 30]
+      });
+      feeder_green = new L.Icon({
+        iconUrl: "/static/appslims/icon/feeder_green.png",
+        iconSize: [30, 30]
+      });
+      feeder_orange = new L.Icon({
+        iconUrl: "/static/appslims/icon/feeder_orange.png",
+        iconSize: [30, 30]
+      });
+      gateway = new L.Icon({
+        iconUrl: "/static/appslims/icon/gateway.png",
+        iconSize: [30, 50]
+      });
+
+
+      _time_select = '';
+      _feedername = '';
+
+      tableNoti = $('#tableNoti').DataTable({
+        paging: false,
+        searchable: false,
+        bFilter: false,
+        ordering: false,
+        searching: false,
+        pageLength: 3,
+
+        "language": {
+          "emptyTable": "  &nbsp No alarm"
+        },
+        "ajax": {
+          url: 'feederAlarm',
+          dataSrc: function (json) {
+            // console.log('feederAlarm')
+            // console.log(json);
+            return json; //return json.data;
+          }
+        },
+        "columns": [
+          {
+            "data": "feedername",
+            "fnCreatedCell": function (nTd, sData, oData, iRow, iCol) {
+              if (oData.feedername) {
+                tr = true;
+                $(nTd).html('<a class="dropdown-item d-flex align-items-center" style="cursor:pointer;width:25rem" onclick="showfeedermap(' + oData.feederid + ',' + oData.lat + ',' + oData.lng + ',' + tr + ')"> <div class="mr-3"> <div class="icon-circle bg-warning"> <i class="fas fa-exclamation-triangle text-white"></i> </div></div><div> <div class="small text-gray-500">' + oData.dateCreated + '</div><span class="font-weight-bold text-black">Device: ' + oData.feedername + '!</span> </div></a>');
+              }
+            }, "defaultContent": ""
+          },
+          // {     "data"     :     "date", "defaultContent": ""},
+        ]
+      });
+      document.getElementById('tableNoti_info').style.display = 'none';//font at bottom table hide
+
+
+      function show_io() {
+        feederid = document.getElementById('feederid').innerText;
+        // console.log('id: '+feederid);
+        // return
+        // document.getElementById("history_io").href = "http://www.cnn.com/";
+        document.location.href = '/history_io/' + feederid;
+
+      }
+      function showfeedermap(feederid, lat, lng, from) {
+        // console.log('showfeedermap id: '+feederid,lat,lng,from);
+        // return
+        console.clear()
+
+        id = 'tbl_' + 1;
+        $("#" + id).removeClass('tbl-selected');
+
+        id = 'tbl_' + 2;
+        $("#" + id).removeClass('tbl-selected');
+
+        id = 'tbl_' + 3;
+        $("#" + id).removeClass('tbl-selected');
+
+        $("#tbl_" + feederid).addClass('tbl-selected');
+        clearTableAlarm(feederid);
+        doshowmap(feederid, lat, lng, from);
+        return
+      }
+      function clearTableAlarm(feederid) {
+        try {
+          tableAlarm.clear();
+          tableAlarm.destroy();
+        }
+        catch (err) {
+          // console.log('No table changetablesolnhis')
+        }
+        try {
+          // fntableAlarm(feederid);
+          setTimeout(function () {
+            fntableAlarm(feederid);
+          }, 1000);
+        }
+        catch (err) {
+          // console.log('No data changetablesolnhis')
+        }
+      }
+
+
+      function barenergy(opt, type, site_name) {
+        var d = new Date();
+        months = d.getMonth();
+        years = d.getFullYear();
+        if (_time_select == 'm9') {
+          d.setMonth(d.getMonth() - 1);
+          months = d.getMonth();
+          years = d.getFullYear();
+        }
+        var month = new Array();
+        month[0] = "January";
+        month[1] = "February";
+        month[2] = "March";
+        month[3] = "April";
+        month[4] = "May";
+        month[5] = "June";
+        month[6] = "July";
+        month[7] = "August";
+        month[8] = "September";
+        month[9] = "October";
+        month[10] = "November";
+        month[11] = "December";
+        monthyear = (month[months]).toUpperCase() + ' ' + years;
+        // console.log('do barenergy');
+        // alert('aaa')
+        chart_type = 'chart_kwh'
+        am4core.useTheme(am4themes_animated);
+        var chart = am4core.create(chart_type, am4charts.XYChart);
+        // chart.responsive.enabled = true;
+        chart.data = (function () {
+          var json = null;
+          $.ajax({
+            beforeSend: function (xhr, settings) {
+              if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+                xhr.setRequestHeader("X-CSRFToken", csrftoken);
+              }
+            },
+            type: 'POST',
+            async: false,
+            global: false,
+            url: 'jsonbarTotalkwh3phaseTotal',
+            data: { opt: opt, graphtype: type, site_name: site_name },
+            cache: false,
+            success: function (data) {
+              json = data;
+              console.log('jsonbarTotalkwh3phaseTotal')
+              console.log(json.length);
+              $("#grp5").css("visibility", "visible").css("display", "inline");
+            }
+          });
+          return json;
+        })();
+
+        // console.log('chart.data');
+        // console.log(chart.data[0].total_kwh);
+        // totall=tot=totavg=0;
+        // for(var k=0;k<chart.data.length;k++){
+        //   tot = chart.data[k].total_kwh;
+        //   totall = totall +tot;
+        // }
+        // totavg = totall/chart.data.length+50;
+        // console.log(totavg);
+        var topContainer = chart.chartContainer.createChild(am4core.Container);
+        topContainer.layout = "absolute";
+        topContainer.toBack();
+        topContainer.paddingBottom = 15;
+        topContainer.width = am4core.percent(100);
+
+        var axisTitle = topContainer.createChild(am4core.Label);
+        axisTitle.text = "Energy Consumption kWh";
+        axisTitle.fontWeight = 600;
+        axisTitle.align = "center";
+        axisTitle.paddingLeft = 10;
+
+
+        chart.cursor = new am4charts.XYCursor();
+        chart.cursor.lineX.disabled = false;
+        chart.cursor.lineY.disabled = false;
+        chart.numberFormatter.numberFormat = "#,###,###.";
+        chart.exporting.menu = new am4core.ExportMenu();
+
+        chart.dateFormatter.inputDateFormat = "MM/DD/YYYY ";
+
+        //Create legend
+        chart.legend = new am4charts.Legend();
+        chart.legend.maxHeight = 150;
+        chart.legend.scrollable = true;
+        // Create axes
+        var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
+        categoryAxis.dataFields.category = "date_created";
+        categoryAxis.renderer.grid.template.location = 0;
+        categoryAxis.renderer.minGridDistance = 30;
+        categoryAxis.renderer.cellStartLocation = 0.2;
+        categoryAxis.renderer.cellEndLocation = 0.8;
+
+        var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
+        valueAxis.title.text = "Energy per day";
+        valueAxis.title.fontWeight = 800;
+        // valueAxis.max = totavg; 
+        // valueAxis.renderer.labels.template.adapter.add("text", (label, target, key) => {
+        //           return label + " "+labelE;
+        //       });
+        // Create series
+        var series = chart.series.push(new am4charts.ColumnSeries());
+        series.name = monthyear;
+        series.dataFields.valueY = "total_kwh";
+        series.dataFields.categoryX = "date_created";
+        series.clustered = true;
+        // series.columns.template.width = am4core.percent(50);
+        series.tooltipText = "Total Energy: [bold]{valueY}[/]";
+        series.tooltip.autoTextColor = false;
+        // series.tooltip.label.fill = am4core.color('red');
+        var valueLabel = series.bullets.push(new am4charts.LabelBullet());
+        valueLabel.label.text = "{valueY}";
+        valueLabel.label.dy = -10;
+        valueLabel.label.fontSize = 14;
+      }
+
+      function showgraph(feedername) {
+        console.clear();
+        if (_time_select == '') {
+          _time_select = 'm5';
+        }
+        _feedername = feedername;
+        // console.log('do showgraph feedername:'+feedername);
+        am4core.disposeAllCharts();
+        var d = new Date();
+        months = d.getMonth() + 1;
+        years = d.getFullYear();
+        if (_time_select == 'm9') {
+          d.setMonth(d.getMonth() - 1);
+          months = d.getMonth() + 1;
+          years = d.getFullYear();
+        }
+        feedernameFull = months + '.' + years + '_' + _feedername + '_1';
+        barenergy(months, 'report', feedernameFull);
+        display_chart(feedername, _time_select);
+      }
+
+      function display_chart(feedername, _time_select) {
+        doloading();
+        var d = new Date();
+        // month from above Date Object is being  
+        // extracted using getMonth() 
+        var n = d.getMonth();
+        setdate = (n + 1) + '.' + d.getFullYear() + '_';
+        graphcurrentElr_1(feedername, 2, setdate, _time_select);
+        graphcurrentElr_2(feedername, 3, setdate, _time_select);
+
+        graphVoltage(feedername, 'pv', 'voltage', 'grp1', 'V', setdate, _time_select);
+        graphCurrent(feedername, 'pc', 'current', 'grp4', 'V', setdate, _time_select);
+      }
+
+      function hidegraph() {
+        // console.log('do hidegraph');
+        $("#grp1").css("visibility", "hidden").css("display", "none");
+        $("#grp2").css("visibility", "hidden").css("display", "none");
+        $("#grp3").css("visibility", "hidden").css("display", "none");
+        $("#grp4").css("visibility", "hidden").css("display", "none");
+        $("#grp5").css("visibility", "hidden").css("display", "none");
+      }
+
+      function doshowmap(feederid, lat, lng, from) {
+        hidegraph();
+        // console.log('lat: '+lat)
+        for (var e = 0; e < arrMarkerFeeder.length; e++) {
+          element = arrMarkerFeeder[e];
+          var flat = element.getLatLng().lat;
+          var flng = element.getLatLng().lng;
+          var feeder_id = element.options.id;
+          // console.log('flat: '+flat);
+          // console.log(element.getPopup() );
+          // console.log(element.getPopup()._isOpen );
+          if (feederid == feeder_id) {
+            setlat = element.options.setlat;
+            setlng = element.options.setlng;
+            zoom = element.options.zoom;
+            if (from == true) {
+              element.openPopup();
+            }
+          }
+        }
+        var latlng = new L.LatLng(setlat, setlng);
+        map.setView(latlng, zoom);
+        $("#accordionSidebar").css("width", "0px").css("display", "none")
+        p1_v = p2_v = p3_v = p1_c = p2_c = p3_c = p1_p = p2_p = p3_p = total_kwh = date_created = elr1 = elr2 = 0
+        feedername = ''
+        map.removeLayer(markerClustersDevice);
+        // console.log('removeLayer markerClustersDevice');
+        $.ajax({
+          beforeSend: function (xhr, settings) {
+            if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+              xhr.setRequestHeader("X-CSRFToken", csrftoken);
+            }
+          },
+          type: 'POST',
+          url: 'getjsonFeederSL',
+          data: ({ deviceid: feederid }),
+          success: function (response) {
+            // console.log('getjsonFeederSL');
+            // console.log(response);
+            jsl = response
+            markerClustersDevice = L.markerClusterGroup({
+              spiderfyOnMaxZoom: true,
+              maxZoom: 10,
+              disableClusteringAtZoom: 7,
+            });
+
+            var markers = [];
+            var marker2 = [];
+            for (var i = 0; i < jsl.length; i++) {
+              lat = parseFloat(jsl[i].latitude);
+              lng = parseFloat(jsl[i].longitude);
+              // console.log(lat,lng);
+
+              switchs = jsl[i].statuspower;
+              alarm = jsl[i].alarm;
+              status = jsl[i].devicestatus;
+              sl = slgrey;
+              if (switchs == 1) {
+                sl = slgreen;
+              }
+              marker2 = new L.marker([(parseFloat(lat)), (parseFloat(lng))], {
+                icon: sl,
+                id: jsl[i].deviceid,
+                name: jsl[i].devicename
+              });
+
+              var popup = '<table><tr><td><span class="opensansbold">Device:</b></td><td><a href="/device/' + jsl[i].deviceid + '">' + jsl[i].devicename + '</td></tr>'
+                + '<tr><td><span class="opensansbold">Location: </b></td><td>' + jsl[i].maplocation + '</td></tr></table>';
+              marker2.bindPopup(popup, {
+                maxWidth: 170
+              });
+              markerClustersDevice.addLayer(marker2);
+              arrMarker[i] = marker2;
+            }
+            map.addLayer(markerClustersDevice);
+          }
+        });
+        // return;
+        $.ajax({
+          beforeSend: function (xhr, settings) {
+            if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+              xhr.setRequestHeader("X-CSRFToken", csrftoken);
+            }
+          },
+          type: 'POST',
+          url: 'getjsondeviceFeeder',
+          data: ({ deviceid: feederid }),
+          success: function (response) {
+            // console.log('io response');
+            // console.log(response);
+            lenjsonio = Object.keys(response).length;
+            if (lenjsonio < 10) {
+              // console.log('lenjsonio<10')
+              $("#ac_g1").css("visibility", "hidden").css("display", "none");
+              $("#ac_g2").css("visibility", "hidden").css("display", "none");
+              $("#row_alarm").css("visibility", "hidden").css("display", "none");
+              return;
+            }
+            feedername = response.feedername
+            lat = response.feederlatitude;
+            // $("#site_name_io").innerHTML(feedername);
+            // document.getElementById('site_name_io').innerHTML = feedername;
+            document.getElementById('feedername').innerHTML = feedername;
+            document.getElementById('feederid').innerHTML = feederid;
+            $("#ac_g1").css("visibility", "visible").css("display", "inline");
+            $("#ac_g2").css("visibility", "visible").css("display", "inline");
+            $("#row_alarm").css("visibility", "visible").css("display", "inline");
+            for (var index in response) {
+              if (index == 'feedername') {
+                break;
+              }
+              // console.log(index, response[index])
+              try {
+                if (response[index] == 1) feeder = '<i class="fas fa-lightbulb" style="color:yellow;"></i>';
+                else feeder = '<i class="fas fa-lightbulb"></i>';
+                document.getElementById(index).innerHTML = feeder;
+              }
+              catch (err) {
+              }
+            }
+
+            updatevoltage(feederid, true);
+          }
+        });
+      }
+
+      function opengraph(data, feederid, xx) {
+        // console.log('do opengraph');
+        status = 'OK'
+        elr1 = 0
+        elr2 = 0
+        p1_v = data[0].p1_v
+        p2_v = data[0].p2_v
+        p3_v = data[0].p3_v
+        p1_c = data[0].p1_c
+        p2_c = data[0].p2_c
+        p3_c = data[0].p3_c
+        p1_p = data[0].p1_p
+        p2_p = data[0].p2_p
+        p3_p = data[0].p3_p
+        total_kwh = data[0].total_kwh
+        date_created = data[0].date_created
+        date = date_created.split(' ')
+        date_created = date[0]
+        time = date[1]
+        try {
+          elr1 = parseInt(data[1][0].ampere)
+          elr2 = parseInt(data[2][0].ampere)
+        }
+        catch (err) {
+        }
+        if (p1_v == 0) {
+          status = 'FAIL'
+          return
+        }
+        dd = date_created.split('-')
+        day = parseInt(dd[2])
+        var d = new Date();
+        var n = (d.toString()).split(' ');
+        n = parseInt(n[2]);
+        // console.log(d);
+        // console.log('day:'+day+' today2 :'+n)
+        if (day != n) {
+          for (var i1 = 0; i1 < jfeeder.length; i1++) {
+            element = arrMarkerFeeder[i1];
+            feeder_id = element.options.id;
+            if (feeder_id == feederid) {
+              var popup = '<table><tr><td colspan=3><span class="opensansbold"><a href="/feeder/' + feederid + '">' + feedername + '</a></span></td></tr>\
+          <tr><td><span class="opensansbold">Date:&nbsp</span></td> <td>'+ date_created + '</td><td>&nbsp' + time + '</td></tr>\
+          <tr><td><span class="opensansbold">Red:&nbsp</span></td> <td>'+ p1_c + ' A</td><td>&nbsp' + p1_v + ' V</td></tr>\
+          <tr><td><span class="opensansbold">Blue:&nbsp</span></td> <td>'+ p2_c + ' A</td><td>&nbsp' + p2_v + ' V</td></tr>\
+          <tr><td><span class="opensansbold">Yellow:&nbsp</span></td> <td>'+ p3_c + ' A</td><td>&nbsp' + p3_v + ' V</td></tr>\
+          <tr><td><span class="opensansbold">ELR1:&nbsp</span></td> <td colspan=2>'+ elr1 + '/300 mA</td></tr>\
+          <tr><td><span class="opensansbold">ELR2:&nbsp</span></td> <td colspan=2>'+ elr2 + '/300 mA</td></tr>\
+          <tr><td style="padding-top:10px;"><span class="opensansbold">Status:&nbsp</span></td> <td style="padding-top:10px;" colspan=2>Offline</td></table>\
+          ';
+              arrMarkerFeeder[i1]._popup.setContent(popup);
+            }
+          }
+          return
+        }
+        else {
+          for (var i1 = 0; i1 < jfeeder.length; i1++) {
+            element = arrMarkerFeeder[i1];
+            feeder_id = element.options.id;
+            if (feeder_id == feederid) {
+              var popup = '<table><tr><td colspan=3><span class="opensansbold"><a href="/feeder/' + feederid + '">' + feedername + '</a></span></td></tr>\
+            <tr><td><span class="opensansbold">Date:&nbsp</span></td> <td>'+ date_created + '</td><td>&nbsp' + time + '</td></tr>\
+            <tr><td><span class="opensansbold">Red:&nbsp</span></td> <td>'+ p1_c + ' A</td><td>&nbsp' + p1_v + ' V</td></tr>\
+            <tr><td><span class="opensansbold">Blue:&nbsp</span></td> <td>'+ p2_c + ' A</td><td>&nbsp' + p2_v + ' V</td></tr>\
+            <tr><td><span class="opensansbold">Yellow:&nbsp</span></td> <td>'+ p3_c + ' A</td><td>&nbsp' + p3_v + ' V</td></tr>\
+            <tr><td><span class="opensansbold">ELR1:&nbsp</span></td> <td colspan=2>'+ elr1 + '/300 mA</td></tr>\
+            <tr><td><span class="opensansbold">ELR2:&nbsp</span></td> <td colspan=2>'+ elr2 + '/300 mA</td></tr>\
+            <tr><td style="padding-top:10px;"><span class="opensansbold">Status:&nbsp</span></td> <td style="padding-top:10px;" colspan=2>Online</td></table>\
+            ';
+              arrMarkerFeeder[i1]._popup.setContent(popup);
+            }
+          }
+          if (xx == true) {
+            showgraph(feedername);
+          }
+        }
+      }
+
+      function updatevoltage(feederid, xx) {
+        // console.log('do updatevoltage');
+        $.ajax({
+          beforeSend: function (xhr, settings) {
+            if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+              xhr.setRequestHeader("X-CSRFToken", csrftoken);
+            }
+          },
+          type: 'POST',
+          url: 'livepower',
+          data: ({ deviceid: feederid }),
+          success: function (data) {
+            // console.log(data);
+            // console.log(feederid+' bol:'+xx)   
+            if (data.length == 0) {
+              return
+            }
+            opengraph(data, feederid, xx)
+          }
+        });
+      }
+
+
+
+      setTimeout(function () {
+        for (var i1 = 0; i1 < arrMarkerFeeder.length; i1++) {
+          element = arrMarkerFeeder[i1];
+          feeder_id = element.options.id;
+          updatevoltage(feeder_id, false);
+        }
+      }, 1000);
+
+
+
+
+      function fntableAlarm(feederid) {
+        printCounter = 0
+        tableAlarm = $('#tbl_alarm').DataTable({
+          dom: 'Bfrtip',
+          buttons: [
+            'copy',
+            {
+              extend: 'print',
+              messageTop: function () {
+                printCounter++;
+                return 'ALARM REPORT';
+              },
+              messageBottom: null
+            }
+          ],
+          // responsive: {
+          //     details: {
+          //         type: 'column',
+          //         target: 'tr'
+          //     }
+          // },
+          scrollY: true,
+          pageLength: 5,
+          paging: true,
+          bFilter: true,
+          ordering: true,
+          searching: false,
+          "emptyrecords": 'No records to display',
+          "columnDefs": [{
+            className: 'control',
+            orderable: true,
+            targets: 0
+          }],
+          order: [0, 'asc'],
+          "ajax": {
+            beforeSend: function (xhr, settings) {
+              if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+                xhr.setRequestHeader("X-CSRFToken", csrftoken);
+              }
+            },
+            type: 'POST',
+            data: { feederid: feederid },
+            url: 'jsonActAlarmFeeder',
+            dataSrc: function (json) {
+              // console.log('jsonActAlarmFeeder !')
+              // console.log(json);
+              return json; //return json.data;
+            }
+          },
+          "columns": [
+            { "data": "no" },
+            { "data": "datecreated" },
+            { "data": "feedername" },
+            // {     "data"     :     "time"}, 
+            // {     "data"     :     "id"},  
+            { "data": "alarm_type" },
+            { "data": "acknowledge" },
+            { "data": "status" },
+            // { "defaultContent": "<button class='buttons-ok' onclick='response(data.feedername)'>OK</button>", },
+            {
+              "defaultContent": "",
+              "fnCreatedCell": function (nTd, sData, oData, iRow, iCol) {
+                if (oData.alarm_id) {
+                  $(nTd).html("<button class='buttons-ok' >OK</button>");
+                }
+              },
+            },
+          ]
+        });
+
+      }
+      // fntableAlarm(1) //TESTING
+
+      var selected = [];
+      $('#tbl_alarm').on('click', 'tbody .buttons-ok', function () {
+        var row = tableAlarm.row($(this).closest('tr'));
+        var data_row = row.data();
+        alarm_id = data_row.alarm_id;
+        // console.log(data_row.alarm_id);
+        // return
+        var r = confirm("Are you sure to remove?");
+        if (r == true) {
+          row.remove().draw();
+          $.ajax({
+            beforeSend: function (xhr, settings) {
+              if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+                xhr.setRequestHeader("X-CSRFToken", csrftoken);
+              }
+            },
+            type: 'POST',
+            url: 'removealarm',
+            data: ({ alarm_id: alarm_id }),
+            success: function (data) {
+              // console.log('Success remove alarm:'+data);
+            }
+          });
+        }
+      });
+
+
+      // TESTING AJAX
+      // $.ajax({
+      //     beforeSend: function(xhr, settings) {
+      //         if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+      //             xhr.setRequestHeader("X-CSRFToken", csrftoken);
+      //         }
+      //     },
+      //     type: 'POST',
+      //     data: { feederid: 1 },
+      //     url: 'jsonActAlarmFeeder',
+      //     success: function (data) {
+      //         json = data;
+      //         console.log('jsonActAlarmFeeder');
+      //         console.log(json);
+      //     }
+      // });
+
+      $('#menu_date').click(function () {
+        Swal.fire({
+          confirmButtonText: '<i class="fas fa-clipboard-list"></i> REPORT',
+          cancelButtonText: '<i class="far fa-clock"></i> DATE',
+          showCancelButton: true,
+          showCloseButton: true
+        }).then((result) => {
+          if (result.value) {
+            // console.log('report');
+            location.href = "report";
+          }
+          else {
+            selectdate();
+          }
+        })
+
+
+        function selectdate() {
+          Swal.fire({
+            // background: '#181e2b',
+            title: '<span>Select last </span>',
+            input: 'select',
+            inputOptions: {
+              m1: '5 mins',
+              m2: '15 mins',
+              m3: '1 hours',
+              m4: '6 hours',
+              m5: '12 hours',
+              m6: '1 days',
+              m7: '1 weeks',
+              m8: '1 months',
+              m9: 'last months',
+            },
+            inputPlaceholder: 'Select',
+            showCancelButton: true,
+          }).then((result) => {
+            if (result.value) {
+              _time_select = result.value;
+              console.log(_time_select);
+              if (_feedername != '') {
+                showgraph(_feedername, _time_select);
+              }
+              // showgraph(serial,maxphase,lat,lng,serial,opt,'m5')
+            }
+          })
+        }
+      });
+    </script>
+    <script src="/static/appslims/js/map.js"></script>
+    <style type="text/css">
+      table.dataTable {
+        border: none;
+      }
+    </style>
+
+  </div>
+  <!-- End of Main Content -->
+
+  <!-- Scroll to Top Button-->
+  <a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+  </a>
+
+  <!-- Logout Modal-->
+  <div class="modal fades" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+          <a class="btn btn-primary" href="/logout">Logout</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap core JavaScript-->
+  <script src="/static/appslims/js/jquery.min.js"></script>
+  <script src="/static/appslims/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Core plugin JavaScript-->
+  <script src="/static/appslims/js/jquery.easing.min.js"></script>
+
+  <!-- Custom scripts for all pages-->
+  <script src="/static/appslims/js/sb-admin-2.min.js"></script>
+
+  <script src="/static/appslims/js/jquery.dataTables.min.js"></script>
+  <script src="/static/appslims/js/dataTables.bootstrap4.min.js"></script>
+  <script src="//cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.js"></script>
+  <script src="//cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
+
+</body>
+
+</html>
+
+<script>
+  function getCookie(name) {
+    var cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+      var cookies = document.cookie.split(';');
+      for (var i = 0; i < cookies.length; i++) {
+        var cookie = cookies[i].trim();
+        // Does this cookie string begin with the name we want?
+        if (cookie.substring(0, name.length + 1) === (name + '=')) {
+          cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+          break;
+        }
+      }
+    }
+    return cookieValue;
+  }
+  var csrftoken = getCookie('csrftoken');
+
+  function csrfSafeMethod(method) {
+    // these HTTP methods do not require CSRF protection
+    return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+  }
+</script>

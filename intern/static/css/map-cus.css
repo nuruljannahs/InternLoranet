@@ -1,0 +1,333 @@
+.xtive{
+  background-color: #53aeef !important;
+  color: white !important;
+}
+
+@media screen and ( max-height: 1080px ) {
+  /* #map{
+    height: 92vh;
+  } */
+  .deviceinfo{
+    height: 420px;
+  }
+}
+@media screen and ( max-height: 768px ) {
+  /* #map{
+    height: 88vh;
+  } */
+  #powerkad {
+    width: max-content !important;
+  }
+
+  .kad-upper{
+    height: 376px;
+    overflow-y: hidden;
+    padding-right: 9px;
+  }
+  .kad-upper:hover{
+    overflow-y: auto;
+  }
+  .deviceinfo{
+    height: 420px;
+  }
+  .kad-upper::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  /* Track */
+  .kad-upper::-webkit-scrollbar-track {
+    background: #f1f1f140;
+    border-radius: 15px;
+  }
+
+  /* Handle */
+  .kad-upper::-webkit-scrollbar-thumb {
+    background: #88888821;
+    border-radius: 15px;
+  }
+
+  /* Handle on hover */
+  .kad-upper::-webkit-scrollbar-thumb:hover {
+    background: rgb(105, 105, 105);
+  }
+}
+
+@media only screen and ( max-width: 2560px ) {
+  .autocomplete {
+    width: 400px ;
+  }
+  .kad-label {
+    width: 389px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media only screen and ( max-width: 1440px ) {
+  .autocomplete, #kad {
+    width: 300px ;
+  }
+  .kad-label {
+    width: 298px;
+  }
+}
+
+@media only screen and ( max-width: 425px ) {
+    .autocomplete {
+      width: 200px ;
+    }
+}
+
+.autocomplete {
+  position: relative;
+  display: inline-block;
+}
+
+input {
+  border: 1px solid transparent;
+  background-color: #f1f1f1;
+  padding: 10px;
+  font-size: 16px;
+}
+
+input[type=text] {
+  background-color: #f1f1f1;
+  width: 100%;
+  padding-right: 2rem;
+}
+
+input[type=submit] {
+  background-color: DodgerBlue;
+  color: #fff;
+  cursor: pointer;
+}
+
+.autocomplete-items {
+  position: absolute;
+  border: 1px solid #d4d4d4;
+  border-bottom: none;
+  border-top: none;
+  z-index: 99;
+  /*position the autocomplete items to be the same width as the container:*/
+  top: 90%;
+  left: 0;
+  right: 0;
+}
+
+.autocomplete-items div {
+  padding: 10px;
+  cursor: pointer;
+  background-color: #fff;
+  border-bottom: 1px solid #d4d4d4;
+}
+
+/*when hovering an item:*/
+.autocomplete-items div:hover {
+  background-color: #e9e9e9;
+}
+
+/*when navigating through the items using the arrow keys:*/
+.autocomplete-active {
+  background-color: DodgerBlue !important;
+  color: #ffffff;
+}
+.blink_me {
+  animation: blinker 1s linear infinite;
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}
+
+.src_inp {
+  position: absolute;
+  padding-top: 12px;
+  right: 12px;
+  font-size: 14px;
+}
+
+.x_inp {
+  cursor: pointer;
+  position: absolute;
+  right: 12px;
+  font-size: 26px;
+  bottom: 3px;
+}
+
+#devicename:hover {
+  text-decoration: underline;
+}
+
+#dev_alarm {
+  width: 750px;
+}
+
+#leaflet_alarm {
+  left: 30vw;
+  pointer-events: all;
+  top: 873px;
+}
+
+#alarm_button_up{
+  left: 46vw;
+  box-shadow: 0 1px 5px rgba(0,0,0,0.65);
+}
+
+#alarm_button_up2{
+  background-color: white;
+  cursor: pointer;
+  pointer-events: all;
+  border-radius: 4px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+@media only screen and ( max-width: 425px ) {
+  #alarm_button_up{
+    left: 40%;
+    bottom: 20px;
+  }
+
+  #leaflet_alarm{
+    left: 5% !important;
+    z-index: 1001;
+  }
+
+  #dev_alarm{
+    width: 383px;
+  }
+
+  .anim-moveup {
+    animation: moveupMobile 0.5s forwards !important;
+  }
+
+  .anim-movedown {
+    animation: movedownMobile 0.5s forwards !important;
+  }
+
+}
+
+@media only screen and ( max-height: 768px ) {
+  #leaflet_alarm {
+    left: 23vw;
+  }
+  .anim-moveup {
+    animation: moveup768 0.5s forwards !important;
+  }
+
+  .anim-movedown {
+    animation: movedown768 0.5s forwards !important;
+  }
+}
+
+.anim-moveup {
+  animation: moveup 0.5s forwards;
+}
+
+.anim-movedown {
+  animation: movedown 0.5s forwards;
+}
+
+.anim_zoom {
+  animation: zoominoutsinglefeatured 1s forwards;
+}
+
+.btn-exit {
+  opacity: 0.7;
+  font-weight: bold;
+  border-radius: 20px;
+  height: 24px;
+  width: 24px;
+  padding-left: 5.3px;
+}
+
+@keyframes zoominoutsinglefeatured {
+  0% {
+    transform: scale(0, 0);
+  }
+
+  100% {
+    transform: scale(1, 1);
+  }
+}
+
+@keyframes moveup {
+  from {
+    top: 873px;
+  }
+
+  to {
+    top: 564px;
+  }
+}
+
+@keyframes movedown {
+  from {
+    top: 564px;
+  }
+  to {
+    top: 873px;
+  }
+}
+
+@keyframes moveup768 {
+  from {
+    top: 873px;
+  }
+
+  to {
+    top: 234px;
+  }
+}
+
+@keyframes movedown768 {
+  from {
+    top: 234px;
+  }
+  to {
+    top: 873px;
+  }
+}
+
+@keyframes moveupMobile {
+  from {
+    top: 873px;
+  }
+
+  to {
+    top: 428px;
+  }
+}
+
+@keyframes movedownMobile {
+  from {
+    top: 428px;
+  }
+  to {
+    top: 873px;
+  }
+}
+
+@media (max-width: 768px){
+  .w3-modal {
+      padding-top: 200px;
+      z-index: 1001;
+  }
+}
+
+.w3-modal{
+  padding-top: 150px !important;
+}
+
+.alarm_badge {
+  border-radius: 20px;
+  background-color: #e74a3b;
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  right: -3px;
+  top: -3px;
+  display: none;
+}

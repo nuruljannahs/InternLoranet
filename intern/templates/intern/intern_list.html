@@ -1,0 +1,87 @@
+{% extends 'index.html' %}
+{% block title %} Intern {% endblock %}
+{% block content %}
+<!--OSM-->
+{% load static %}
+<!--Map-->
+<!-- Page Wrapper -->
+<div id="wrapper">
+
+    <!-- Sidebar -->
+    {% include 'layout/navbar.html' %}
+    <!-- End of Sidebar -->
+
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+
+        <div id="content">
+
+            <!-- Topbar -->
+            {% include 'layout/topbar.html' %}
+            <!-- End of Topbar -->
+            <!-- Begin Page Content -->
+            <div class="container-fluid h-100 pt-4 darker-nw">
+                <!-- Content Row -->
+                <div class="card-body d-blue rounded card-cus">
+                    <h4 class="pb-4 text-white">
+                        Intern Information
+                        <span style="cursor: pointer; float: right; font-size: 1.5em;">
+                          
+                          <a title="Create Gateway" href="/createuser" class="btn" id="createuser"
+                            style="border-color: white;color: white;cursor: pointer;"><i class="fas fa-plus"></i>&nbsp CREATE</a>
+                            <!-- <a href="/sYE8kSrGbwM=/addGroup" title="Create group"> <i class="fas fa-plus-square"></i></a> -->
+                          
+                        </span>
+                    </h4>
+                    <div class="table-responsive">
+                        <table class="table text-white" id="datatb" style="border-top:transparent solid;">
+                            <tbody>
+                                <tr>
+                                    <!--<td>#</td>-->
+                                    <td>Id</td>
+                                    <td>First Name</td>
+                                    <td>Last Name</td>
+                                    <td>Username</td>
+                                </tr>
+                                {% for it in user %}
+                                <tr>
+                                    <td>{{ it.id }}</td>
+                                    <td>{{ it.first_name }}</td>
+                                    <td>{{ it.last_name }}</td>
+                                    <td>{{ it.username }}</td>
+                                    
+    
+                                    <td>
+                                        <a title="Update" href="/updateuser/{{ it.id }}" class="btn-text-secondary px-0" id="usupp_{{it.supp_id}}">
+                                            <i class="far fa-edit fa-lg"></i>
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a title="Delete" href="/deleteuser/{{ it.id }}" class="btn-text-secondary px-1" id="dsupp_{{it.supp_id}}">
+                                            <i class="fas fa-trash-alt"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- /.container-fluid -->
+
+            </div>
+            <!-- End of Main Content -->
+        </div>
+
+        <!-- Footer -->
+        {% include 'layout/footer.html' %}
+        <!-- End of Footer -->
+
+    </div>
+    <!-- End of Content Wrapper -->
+
+</div>
+<!-- End of Page Wrapper -->
+
+{% endblock %}
